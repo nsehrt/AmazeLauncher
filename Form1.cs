@@ -60,7 +60,8 @@ namespace AmazeLauncher
                 shadowQuality.SelectedIndex = 0;
             }
 
-            anisotropicFilter.SelectedIndex = anisotropicFilter.FindStringExact(Convert.ToString(config.Graphic.AnisotropicFiltering) + "x");
+            anisotropicFilter.SelectedIndex = anisotropicFilter.FindStringExact(
+                config.Graphic.AnisotropicFiltering != 0 ? Convert.ToString(config.Graphic.AnisotropicFiltering) + "x" : "None");
 
 
             sobelFilter.SelectedIndex = config.Graphic.SobelFilter == 0 ?
@@ -85,7 +86,47 @@ namespace AmazeLauncher
         {
             // apply settings
 
+            switch (resolution.SelectedIndex)
+            {
+                case 0: config.Display.ResolutionWidth = 1280; config.Display.ResolutionHeight = 720; break;
+                case 1: config.Display.ResolutionWidth = 1600; config.Display.ResolutionHeight = 900; break;
+                case 2: config.Display.ResolutionWidth = 1920; config.Display.ResolutionHeight = 1080; break;
+                case 3: config.Display.ResolutionWidth = 2560; config.Display.ResolutionHeight = 1440; break;
+                case 4: config.Display.ResolutionWidth = 3840; config.Display.ResolutionHeight = 2160; break;
+            }
 
+            config.Display.WindowMode = displayMode.SelectedIndex == 0 ? 0 : 2;
+            config.Display.VSync = vsync.SelectedIndex;
+
+            switch (refreshRate.SelectedIndex)
+            {
+                case 0: config.Display.RefreshRate = 30; break;
+                case 1: config.Display.RefreshRate = 60; break;
+                case 2: config.Display.RefreshRate = 144; break;
+                case 3: config.Display.RefreshRate = 240; break;
+            }
+
+            config.Audio.MasterVolume = volume.Value / 10.0f;
+
+            switch (shadowQuality.SelectedIndex)
+            {
+                case 0: config.Graphic.ShadowEnabled = 0; break;
+                case 1: config.Graphic.ShadowEnabled = 1; config.Graphic.ShadowQuality = 0; break;
+                case 2: config.Graphic.ShadowEnabled = 1; config.Graphic.ShadowQuality = 1; break;
+                case 3: config.Graphic.ShadowEnabled = 1; config.Graphic.ShadowQuality = 2; break;
+                case 4: config.Graphic.ShadowEnabled = 1; config.Graphic.ShadowQuality = 3; break;
+            }
+
+            switch (anisotropicFilter.SelectedIndex)
+            {
+                case 0: config.Graphic.AnisotropicFiltering = 0; break;
+                case 1: config.Graphic.AnisotropicFiltering = 4; break;
+                case 2: config.Graphic.AnisotropicFiltering = 8; break;
+                case 3: config.Graphic.AnisotropicFiltering = 16; break;
+            }
+
+            config.Graphic.SobelFilter = sobelFilter.SelectedIndex;
+            config.Misc.DrawFPSEnabled = drawFPS.SelectedIndex;
 
             // save json configuration
 
