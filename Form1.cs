@@ -83,9 +83,16 @@ namespace AmazeLauncher
         //play button
         private void button1_Click(object sender, EventArgs e)
         {
+            // apply settings
+
+
+
             // save json configuration
 
-
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.WriteIndented = true;
+            string outJson = JsonSerializer.Serialize(config, options);
+            File.WriteAllText("config\\settings.json", outJson);
 
             // start game
             try
