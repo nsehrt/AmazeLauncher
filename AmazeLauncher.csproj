@@ -7,7 +7,7 @@
     <ProjectGuid>{4EB45F94-8CB0-4A16-94E3-18A063178A53}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>AmazeLauncher</RootNamespace>
-    <AssemblyName>AmazeLauncher</AssemblyName>
+    <AssemblyName>amaze_launcher</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
