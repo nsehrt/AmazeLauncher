@@ -30,6 +30,7 @@ namespace AmazeLauncher
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.drawFPS = new System.Windows.Forms.ComboBox();
             this.sobelFilter = new System.Windows.Forms.ComboBox();
             this.anisotropicFilter = new System.Windows.Forms.ComboBox();
@@ -39,7 +40,7 @@ namespace AmazeLauncher
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.volume = new System.Windows.Forms.TrackBar();
             this.label6 = new System.Windows.Forms.Label();
             this.refreshRate = new System.Windows.Forms.ComboBox();
             this.vsync = new System.Windows.Forms.ComboBox();
@@ -53,13 +54,14 @@ namespace AmazeLauncher
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.volume)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.drawFPS);
             this.panel1.Controls.Add(this.sobelFilter);
             this.panel1.Controls.Add(this.anisotropicFilter);
@@ -69,7 +71,7 @@ namespace AmazeLauncher
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.trackBar1);
+            this.panel1.Controls.Add(this.volume);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.refreshRate);
             this.panel1.Controls.Add(this.vsync);
@@ -82,8 +84,16 @@ namespace AmazeLauncher
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(397, 393);
+            this.panel1.Size = new System.Drawing.Size(397, 409);
             this.panel1.TabIndex = 0;
+            // 
+            // label12
+            // 
+            this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label12.Location = new System.Drawing.Point(18, 353);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(366, 2);
+            this.label12.TabIndex = 20;
             // 
             // drawFPS
             // 
@@ -92,7 +102,7 @@ namespace AmazeLauncher
             this.drawFPS.Items.AddRange(new object[] {
             "Off",
             "On"});
-            this.drawFPS.Location = new System.Drawing.Point(157, 353);
+            this.drawFPS.Location = new System.Drawing.Point(157, 370);
             this.drawFPS.Name = "drawFPS";
             this.drawFPS.Size = new System.Drawing.Size(227, 21);
             this.drawFPS.TabIndex = 19;
@@ -141,7 +151,7 @@ namespace AmazeLauncher
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 356);
+            this.label11.Location = new System.Drawing.Point(15, 373);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(55, 13);
             this.label11.TabIndex = 15;
@@ -182,14 +192,14 @@ namespace AmazeLauncher
             this.label7.Size = new System.Drawing.Size(366, 2);
             this.label7.TabIndex = 11;
             // 
-            // trackBar1
+            // volume
             // 
-            this.trackBar1.LargeChange = 2;
-            this.trackBar1.Location = new System.Drawing.Point(157, 170);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(227, 45);
-            this.trackBar1.TabIndex = 10;
-            this.trackBar1.Value = 10;
+            this.volume.LargeChange = 2;
+            this.volume.Location = new System.Drawing.Point(157, 170);
+            this.volume.Name = "volume";
+            this.volume.Size = new System.Drawing.Size(227, 45);
+            this.volume.TabIndex = 10;
+            this.volume.Value = 10;
             // 
             // label6
             // 
@@ -300,7 +310,7 @@ namespace AmazeLauncher
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(227, 411);
+            this.button1.Location = new System.Drawing.Point(227, 427);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 34);
             this.button1.TabIndex = 1;
@@ -310,7 +320,7 @@ namespace AmazeLauncher
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(321, 411);
+            this.button2.Location = new System.Drawing.Point(321, 427);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 34);
             this.button2.TabIndex = 2;
@@ -322,7 +332,7 @@ namespace AmazeLauncher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(414, 452);
+            this.ClientSize = new System.Drawing.Size(414, 473);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
@@ -334,7 +344,7 @@ namespace AmazeLauncher
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.volume)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -354,7 +364,7 @@ namespace AmazeLauncher
         private System.Windows.Forms.ComboBox vsync;
         private System.Windows.Forms.ComboBox displayMode;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar volume;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox drawFPS;
         private System.Windows.Forms.ComboBox sobelFilter;
@@ -364,6 +374,7 @@ namespace AmazeLauncher
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label12;
     }
 }
 

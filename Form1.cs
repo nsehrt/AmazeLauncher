@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.IO;
+using System.Diagnostics;
 
 
 namespace AmazeLauncher
@@ -27,12 +21,63 @@ namespace AmazeLauncher
             string configFile = "config\\settings.json";
             string json = File.ReadAllText(configFile);
             config = JsonSerializer.Deserialize<Configuration>(json);
+
+            //apply config to drop downs
+
+            //display
+
+            switch (config.Display.ResolutionWidth)
+            {
+                case 1280: resolution.SelectedIndex = 0; break;
+                case 1600: resolution.SelectedIndex = 1; break;
+                case 1920: resolution.SelectedIndex = 2; break;
+                case 2560: resolution.SelectedIndex = 3; break;
+                case 3840: resolution.SelectedIndex = 4; break;
+            }
+
+            displayMode.SelectedIndex = config.Display.WindowMode != 0 ?
+                displayMode.FindStringExact("Borderless")
+                : displayMode.FindStringExact("Windowed");
+
+            vsync.SelectedIndex = config.Display.VSync == 0 ?
+                vsync.FindStringExact("Off") :
+                vsync.FindStringExact("On");
+
+            refreshRate.SelectedIndex = refreshRate.FindStringExact(Convert.ToString(config.Display.RefreshRate) + "hz");
+
+            //volume
+            volume.Value = (int)(config.Audio.MasterVolume * 10);
+
+
+            //graphic
+
+            if (config.Graphic.ShadowEnabled == 1)
+            {
+                shadowQuality.SelectedIndex = config.Graphic.ShadowQuality + 1;
+            }
+            else
+            {
+                shadowQuality.SelectedIndex = 0;
+            }
+
+            anisotropicFilter.SelectedIndex = anisotropicFilter.FindStringExact(Convert.ToString(config.Graphic.AnisotropicFiltering) + "x");
+
+
+            sobelFilter.SelectedIndex = config.Graphic.SobelFilter == 0 ?
+                sobelFilter.FindStringExact("Off") :
+                sobelFilter.FindStringExact("On");
+
+            //misc
+            drawFPS.SelectedIndex = config.Misc.DrawFPSEnabled == 0 ?
+                drawFPS.FindStringExact("Off") :
+                drawFPS.FindStringExact("On");
+
         }
 
         //close button
         private void button2_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         //play button
@@ -40,13 +85,26 @@ namespace AmazeLauncher
         {
             // save json configuration
 
+
+
             // start game
+            try
+            {
+                _ = Process.Start("Amaze.exe");
+            }
+            catch
+            {
+                _ = MessageBox.Show("Launcher can not find game executable!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
             // close launcher 
+            Application.Exit();
         }
 
 
         public Configuration config;
+
     }
 
     public class JAudio
