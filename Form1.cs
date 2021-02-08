@@ -138,7 +138,7 @@ namespace AmazeLauncher
             // start game
             try
             {
-                _ = Process.Start("Amaze.exe");
+                _ = Process.Start("amaze.exe");
             }
             catch
             {
