@@ -35,9 +35,7 @@ namespace AmazeLauncher
                 case 3840: resolution.SelectedIndex = 4; break;
             }
 
-            displayMode.SelectedIndex = config.Display.WindowMode != 0 ?
-                displayMode.FindStringExact("Borderless")
-                : displayMode.FindStringExact("Windowed");
+            displayMode.SelectedIndex = config.Display.WindowMode;
 
             vsync.SelectedIndex = config.Display.VSync == 0 ?
                 vsync.FindStringExact("Off") :
@@ -95,7 +93,7 @@ namespace AmazeLauncher
                 case 4: config.Display.ResolutionWidth = 3840; config.Display.ResolutionHeight = 2160; break;
             }
 
-            config.Display.WindowMode = displayMode.SelectedIndex == 0 ? 0 : 2;
+            config.Display.WindowMode = displayMode.SelectedIndex;
             config.Display.VSync = vsync.SelectedIndex;
 
             switch (refreshRate.SelectedIndex)

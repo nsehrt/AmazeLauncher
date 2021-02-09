@@ -243,6 +243,7 @@ namespace AmazeLauncher
             this.displayMode.FormattingEnabled = true;
             this.displayMode.Items.AddRange(new object[] {
             "Windowed",
+            "Exclusive Fullscreen (not stable!)",
             "Borderless"});
             this.displayMode.Location = new System.Drawing.Point(157, 52);
             this.displayMode.Name = "displayMode";
