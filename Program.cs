@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+
 
 namespace AmazeLauncher
 {
@@ -14,9 +13,22 @@ namespace AmazeLauncher
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AmazeLauncher());
+            bool createdNew = true;
+            using (Mutex mutex = new Mutex(true, "amaze_launcher", out createdNew))
+            {
+                if (createdNew)
+                {
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new AmazeLauncher());
+                }
+                else
+                {
+                    _ = MessageBox.Show("An instance of the launcher is already running!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+
         }
     }
 }
