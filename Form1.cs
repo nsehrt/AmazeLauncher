@@ -71,6 +71,10 @@ namespace AmazeLauncher
                 drawFPS.FindStringExact("Off") :
                 drawFPS.FindStringExact("On");
 
+            objIndicator.SelectedIndex = config.Gameplay.IndicatorEnabled == false ?
+                objIndicator.FindStringExact("Off") :
+                objIndicator.FindStringExact("On");
+
         }
 
         //close button
@@ -125,6 +129,7 @@ namespace AmazeLauncher
 
             config.Graphic.SobelFilter = sobelFilter.SelectedIndex;
             config.Misc.DrawFPSEnabled = drawFPS.SelectedIndex;
+            config.Gameplay.IndicatorEnabled = objIndicator.SelectedIndex == 0 ? false : true;
 
             // save json configuration
 
@@ -177,6 +182,8 @@ namespace AmazeLauncher
         public float MazeBraidRatio { get; set; }
         public bool TrailEnabled { get; set; }
         public int RandomSeed { get; set; }
+
+        public bool IndicatorEnabled { get; set; }
     }
 
     public class JGraphic

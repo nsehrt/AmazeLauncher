@@ -54,6 +54,8 @@ namespace AmazeLauncher
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.objIndicator = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.volume)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +64,8 @@ namespace AmazeLauncher
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.objIndicator);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.drawFPS);
             this.panel1.Controls.Add(this.sobelFilter);
@@ -85,7 +89,7 @@ namespace AmazeLauncher
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(397, 409);
+            this.panel1.Size = new System.Drawing.Size(397, 441);
             this.panel1.TabIndex = 0;
             // 
             // label12
@@ -196,7 +200,7 @@ namespace AmazeLauncher
             // volume
             // 
             this.volume.LargeChange = 2;
-            this.volume.Location = new System.Drawing.Point(157, 170);
+            this.volume.Location = new System.Drawing.Point(157, 167);
             this.volume.Name = "volume";
             this.volume.Size = new System.Drawing.Size(227, 45);
             this.volume.TabIndex = 10;
@@ -312,7 +316,7 @@ namespace AmazeLauncher
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(227, 427);
+            this.button1.Location = new System.Drawing.Point(227, 459);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 34);
             this.button1.TabIndex = 1;
@@ -322,7 +326,7 @@ namespace AmazeLauncher
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(321, 427);
+            this.button2.Location = new System.Drawing.Point(321, 459);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 34);
             this.button2.TabIndex = 2;
@@ -330,11 +334,32 @@ namespace AmazeLauncher
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // objIndicator
+            // 
+            this.objIndicator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.objIndicator.FormattingEnabled = true;
+            this.objIndicator.Items.AddRange(new object[] {
+            "Off",
+            "On"});
+            this.objIndicator.Location = new System.Drawing.Point(157, 403);
+            this.objIndicator.Name = "objIndicator";
+            this.objIndicator.Size = new System.Drawing.Size(227, 21);
+            this.objIndicator.TabIndex = 21;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(15, 411);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(96, 13);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "Objective Indicator";
+            // 
             // AmazeLauncher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 473);
+            this.ClientSize = new System.Drawing.Size(418, 501);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
@@ -378,6 +403,8 @@ namespace AmazeLauncher
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox objIndicator;
     }
 }
 
