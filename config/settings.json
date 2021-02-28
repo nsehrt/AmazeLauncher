@@ -30,6 +30,7 @@
     "Input": {
         "InvertYAxis": 1,
         "Sensitivity": 1.5,
+        "ForceKeyboard": 1,
         "FPSCameraSpeed": 25.0
     },
     "Misc": {

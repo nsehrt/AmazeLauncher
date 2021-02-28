@@ -75,6 +75,8 @@ namespace AmazeLauncher
                 objIndicator.FindStringExact("Off") :
                 objIndicator.FindStringExact("On");
 
+            checkBox1.Checked = config.Input.ForceKeyboard;
+
         }
 
         //close button
@@ -130,7 +132,7 @@ namespace AmazeLauncher
             config.Graphic.SobelFilter = sobelFilter.SelectedIndex;
             config.Misc.DrawFPSEnabled = drawFPS.SelectedIndex;
             config.Gameplay.IndicatorEnabled = objIndicator.SelectedIndex == 0 ? false : true;
-
+            config.Input.ForceKeyboard = checkBox1.Checked;
             // save json configuration
 
             JsonSerializerOptions options = new JsonSerializerOptions();
@@ -200,6 +202,7 @@ namespace AmazeLauncher
         public int InvertYAxis { get; set; }
         public float Sensitivity { get; set; }
         public float FPSCameraSpeed { get; set; }
+        public bool ForceKeyboard { get; set; }
     }
 
     public class JMisc
